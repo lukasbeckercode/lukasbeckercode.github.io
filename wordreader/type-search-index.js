@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"com.lukabeckercode.wordreader","l":"NumberComparator"},{"p":"com.lukabeckercode.wordreader","l":"WordReader"}];updateSearchResults();
