@@ -1,32 +1,38 @@
 body {
-	background-color: lightblue; 
-	font-family: Georgia, serif; 
+    background-color: lightblue;
+    font-family: Georgia, serif;
 }
-h1,h2,h3,h4,h5,h6{
-	font-weight: bold;
-	font-family: Verdana, sans-serif; 
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    font-family: Verdana, sans-serif;
 }
+
 .fit-window {
-	max-width: 360px;
-        max-height: 480px; 
-	width: 50%; 
-	height: 480px; 
-}	
+    max-width: 360px;
+    max-height: 480px;
+    width: 50%;
+    height: 480px;
+}
 
 #success-table-format {
-	width: 100%; 
-	text-align: center; 
-	background-color: #99ccff
+    width: 100%;
+    text-align: center;
+    background-color: #99ccff
 }
+
 #success-table {
-	border: 1px solid black; 
-	text-align: center; 
+    border: 1px solid black;
+    text-align: center;
 }
+
 #index-table {
-	border: 1px solid black; 
-	width: 50%; 
-	background-color: #0099ff; 
+    border: 1px solid black;
+    width: 50%;
+    background-color: #0099ff;
 }
+
 #success-content {
-	background-color: #00ffcc; 
+    background-color: #00ffcc;
+    text-align: center;
 }
