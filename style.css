@@ -1,9 +1,18 @@
 body {
     background-color: lightblue;
     font-family: Georgia, serif;
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
-h1, h2, h3, h4, h5, h6 {
+ h1{
+    font-weight: bold;
+    font-family: Verdana, sans-serif;
+    text-align: center; 
+}
+
+
+ h2, h3, h4, h5, h6 {
     font-weight: bold;
     font-family: Verdana, sans-serif;
 }
@@ -35,4 +44,12 @@ h1, h2, h3, h4, h5, h6 {
 #success-content {
     background-color: #00ffcc;
     text-align: center;
+}
+
+#video-frame {
+	margin-top:50px; 
+}
+
+#video-frame {
+	margin-top:50px; 
 }
