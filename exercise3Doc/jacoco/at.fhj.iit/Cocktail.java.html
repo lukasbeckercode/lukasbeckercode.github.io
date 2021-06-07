@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Cocktail.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Drinks</a> &gt; <a href="index.source.html" class="el_package">at.fhj.iit</a> &gt; <span class="el_source">Cocktail.java</span></div><h1>Cocktail.java</h1><pre class="source lang-java linenums">package at.fhj.iit;
+
+/**
+ * Cocktail consisting of multiple Liquids
+ * @see Drink
+ * @author Lukas Becker
+ * last change: 24.04.2021
+ */
+public class Cocktail extends Drink {
+
+    /**
+     * Creates a Drink object with given name, e.g. juice or orange juice
+     *
+     * @param name name of the drink
+     */
+    public Cocktail(String name) {
+<span class="fc" id="L17">        super(name);</span>
+<span class="fc" id="L18">    }</span>
+
+
+    /**
+     * @return the name of the cocktail
+     */
+    public String getName(){
+<span class="fc" id="L25">        return super.name;</span>
+    }
+
+    /**
+     * adds the Volumes of the Liquids together
+     * @return the calculated volume of all Liquids together
+     */
+    @Override
+    public double getVolume() {
+        //returns the average volume
+<span class="fc" id="L35">        double sum = 0;</span>
+<span class="fc bfc" id="L36" title="All 2 branches covered.">        for(Liquid l:getLiquids()){</span>
+<span class="fc" id="L37">            sum += l.getVolume();</span>
+<span class="fc" id="L38">        }</span>
+<span class="fc" id="L39">        return sum;</span>
+    }
+
+    /**
+     * Averages the alcohol percent of each Liquid
+     * @return the average alcohol percentage
+     */
+    @Override
+    public double getAlcoholPercent() {
+        //returns average alcohol percent
+<span class="fc" id="L49">        double sum = 0;</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">        for(Liquid l: getLiquids()){</span>
+<span class="fc" id="L51">           sum += l.getAlcoholPercent();</span>
+<span class="fc" id="L52">        }</span>
+<span class="fc" id="L53">        return sum/ getLiquids().size();</span>
+    }
+
+    /**
+     * checks if any Liquid in the cocktail is alcoholic
+     * @return true if there is alcohol, false if not
+     */
+    @Override
+    public boolean isAlcoholic() {
+
+<span class="fc bfc" id="L63" title="All 2 branches covered.">        for(Liquid l:getLiquids()){</span>
+<span class="fc bfc" id="L64" title="All 2 branches covered.">            if(l.getAlcoholPercent()&gt;0){</span>
+<span class="fc" id="L65">                return true;</span>
+            }
+<span class="fc" id="L67">        }</span>
+<span class="fc" id="L68">        return false;</span>
+    }
+
+    /**
+     * gets all the Liquids names
+     * @return a String array containing all the Liquid names
+     */
+    public String[] getLiquidsString(){
+<span class="fc" id="L76">        String[] liquidsStr = new String[getLiquids().size()];</span>
+<span class="fc bfc" id="L77" title="All 2 branches covered.">        for(int i = 0; i&lt; getLiquids().size();i++){</span>
+<span class="fc" id="L78">            liquidsStr[i]= getLiquids().get(i).getName();</span>
+        }
+<span class="fc" id="L80">        return liquidsStr;</span>
+    }
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Registrierkasse.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Drinks</a> &gt; <a href="index.source.html" class="el_package">at.fhj.iit</a> &gt; <span class="el_source">Registrierkasse.java</span></div><h1>Registrierkasse.java</h1><pre class="source lang-java linenums">package at.fhj.iit;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Total sales for each category:
+ * non alcoholic drinks
+ * &quot;light&quot; drinks (alcohol percentage smaller then or equal to 16%)
+ * &quot;hard&quot; drinks (alcohol percentage greater then 16%)
+ */
+public class Registrierkasse implements RegisterInterface {
+<span class="fc" id="L13">    static List&lt;SellingData&gt; sellingDataList = new ArrayList&lt;&gt;();</span>
+
+    /**
+     * Default Constructor
+     */
+<span class="fc" id="L18">    public Registrierkasse() {</span>
+<span class="fc" id="L19">    }</span>
+
+    /**
+     * Calculate sales per drink, differences in liquids
+     *
+     * @return money made from selling all drinks on one day
+     */
+    @Override
+    public double[] salesPerDrink()  {
+<span class="fc" id="L28">        double drinkPriceSoft = 0.0;</span>
+<span class="fc" id="L29">        double drinkPriceLight = 0.0;</span>
+<span class="fc" id="L30">        double drinkPriceHard = 0.0;</span>
+        Drink drink;
+<span class="fc bfc" id="L32" title="All 2 branches covered.">        for (SellingData data : sellingDataList) {</span>
+<span class="fc" id="L33">            drink = data.getDrink();</span>
+            //difference in AlcoholPercent of drink
+<span class="fc" id="L35">            double alc = drink.getAlcoholPercent();</span>
+<span class="fc bfc" id="L36" title="All 2 branches covered.">            if (alc == 0){</span>
+<span class="fc" id="L37">                drinkPriceSoft += data.getPrice();</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">            } else if (alc &lt;= 16){</span>
+<span class="fc" id="L39">                drinkPriceLight += data.getPrice();</span>
+<span class="pc bpc" id="L40" title="1 of 2 branches missed.">            } else if (alc &gt; 16){</span>
+<span class="fc" id="L41">                drinkPriceHard += data.getPrice();</span>
+            }
+<span class="fc" id="L43">        }</span>
+<span class="fc" id="L44">        double[] sumDrinkPrice = new double[3];</span>
+<span class="fc" id="L45">        sumDrinkPrice[0] = drinkPriceSoft;</span>
+<span class="fc" id="L46">        sumDrinkPrice[1] = drinkPriceLight;</span>
+<span class="fc" id="L47">        sumDrinkPrice[2] = drinkPriceHard;</span>
+<span class="fc" id="L48">        return sumDrinkPrice;</span>
+    }
+
+    /**
+     * Calculates sales per day
+     *
+     * @param day the day that is looked at
+     * @return the complete revenue made on that day as a double
+     */
+    @Override
+    public double salesPerDay(SellingDay day) {
+<span class="fc" id="L59">        double timePrice = 0.0;</span>
+<span class="fc bfc" id="L60" title="All 2 branches covered.">        for (SellingData data : sellingDataList) {</span>
+<span class="fc bfc" id="L61" title="All 2 branches covered.">            if (data.getSellingDay().getDayTitle().equals(day.getDayTitle())) {</span>
+<span class="fc" id="L62">                timePrice += data.getPrice();</span>
+            }
+<span class="fc" id="L64">        }</span>
+<span class="fc" id="L65">        return timePrice;</span>
+    }
+
+
+    /**
+     * Calculate sales per selling person
+     *
+     * @param seller the seller that is looked at
+     * @return the revenue made by one seller over time
+     */
+    @Override
+    public double salesPerCapita(Seller seller) {
+<span class="fc" id="L77">        double capitaPrice = 0.0;</span>
+<span class="fc bfc" id="L78" title="All 2 branches covered.">        for (SellingData data : sellingDataList) {</span>
+<span class="fc bfc" id="L79" title="All 2 branches covered.">            if (data.getSeller() == seller) {</span>
+<span class="fc" id="L80">                capitaPrice += data.getPrice();</span>
+            }
+<span class="fc" id="L82">        }</span>
+<span class="fc" id="L83">        return capitaPrice;</span>
+    }
+
+    /**
+     * calculate sales for one day made by one selling person
+     *
+     * @param seller the seller that is looked at
+     * @param day    the day that is looked at
+     * @return the revenue made by one seller on one day
+     */
+    @Override
+    public double salesPerCapitaAndDay(Seller seller, SellingDay day) {
+<span class="fc" id="L95">        double capitaDayPrice = 0.0;</span>
+<span class="fc bfc" id="L96" title="All 2 branches covered.">        for (SellingData data : sellingDataList) {</span>
+<span class="pc bpc" id="L97" title="2 of 4 branches missed.">            if (data.getSeller() == seller &amp;&amp; data.getSellingDay() == day) {</span>
+<span class="fc" id="L98">                capitaDayPrice += data.getPrice();</span>
+            }
+<span class="fc" id="L100">        }</span>
+<span class="fc" id="L101">        return capitaDayPrice;</span>
+    }
+
+    /**
+     * Add something to the dataList
+     *
+     * @param data the data to be added
+     */
+    public void addData(SellingData data) {
+<span class="fc" id="L110">        sellingDataList.add(data);</span>
+<span class="fc" id="L111">    }</span>
+
+    /**
+     * Clears the data of the List
+      */
+    public void clearData() {
+<span class="fc" id="L117">        sellingDataList.clear();</span>
+<span class="fc" id="L118">    }</span>
+
+    /**
+     * returns a certain item from the sellingDataList
+     * @param index index of the item in the list that should be returned
+     * @return the item at the given index
+     */
+    public SellingData getData(int index) {
+<span class="fc" id="L126">        return sellingDataList.get(index);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Main.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Drinks</a> &gt; <a href="index.source.html" class="el_package">at.fhj.iit</a> &gt; <span class="el_source">Main.java</span></div><h1>Main.java</h1><pre class="source lang-java linenums">
+package at.fhj.iit;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+<span class="nc" id="L8">public class Main {</span>
+
+    public static void main(String[] args) {
+<span class="nc" id="L11">        List&lt;Drink&gt; allDrinks = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L12">        System.out.println(&quot;------ ROTWEIN ------&quot;);</span>
+<span class="nc" id="L13">        Liquid l = new Liquid(&quot;Wein&quot;, 0.125, 13);</span>
+<span class="nc" id="L14">        System.out.println(&quot;Alcohol: &quot; + l.getName());</span>
+<span class="nc" id="L15">        System.out.println(&quot;Volume: &quot; + l.getVolume());</span>
+
+<span class="nc" id="L17">        Drink d = new SimpleDrink(&quot;Rotwein&quot;, l);</span>
+<span class="nc" id="L18">        System.out.println(d + &quot;\n&quot;);</span>
+        //allDrinks.add(d);
+
+        //------------------------------Initialize 3 Seller-------------------------------------
+
+<span class="nc" id="L23">        Seller seller1 = new Seller(&quot;Lukas&quot;, 1);</span>
+<span class="nc" id="L24">        Seller seller2 = new Seller(&quot;Andrea&quot;, 2);</span>
+<span class="nc" id="L25">        Seller seller3 = new Seller(&quot;David&quot;, 3);</span>
+
+//-------------Cocktail Implementation----------------------------------------------------------
+<span class="nc" id="L28">        Liquid dryGin = new Liquid(&quot;Dry Gin&quot;, 0.060, 40, 6.50);</span>
+<span class="nc" id="L29">        Liquid vermouth = new Liquid(&quot;Vermouth&quot;, 0.010, 16, 8.70);</span>
+
+<span class="nc" id="L31">        Cocktail martini = new Cocktail(&quot;Martini&quot;);</span>
+<span class="nc" id="L32">        martini.addLiquid(dryGin);</span>
+<span class="nc" id="L33">        martini.addLiquid(vermouth);</span>
+
+<span class="nc" id="L35">        System.out.println(&quot;------ MARTINI ------&quot;);</span>
+<span class="nc" id="L36">        System.out.println(&quot;Contents of Martini:&quot; + Arrays.toString(martini.getLiquidsString()));</span>
+<span class="nc" id="L37">        System.out.printf(&quot;%s is Alcoholic: %b%n&quot;, martini.getName(), martini.isAlcoholic());</span>
+<span class="nc" id="L38">        System.out.printf(&quot;Alcohol percentage of %s: %.2f%n&quot;, martini.getName(), martini.getAlcoholPercent());</span>
+<span class="nc" id="L39">        System.out.printf(&quot;Volume of %s: %.2f%n&quot;, martini.getName(), martini.getVolume());</span>
+//------------------------------------------------------------------------------------------------
+
+<span class="nc" id="L42">        System.out.println(&quot;\n------ BLACK TEA WITH RUM ------&quot;);</span>
+<span class="nc" id="L43">        Liquid rum = new Liquid(&quot;rum&quot;, 0.125, 43, 2.10);</span>
+<span class="nc" id="L44">        Liquid blackTea1 = new Liquid(&quot;hot water + black tea bag&quot;, 0.375, 0, 1.50);</span>
+
+<span class="nc" id="L46">        Tea teaRum = new Tea(&quot;Black Tea with Rum&quot;);</span>
+<span class="nc" id="L47">        teaRum.addLiquid(rum);</span>
+<span class="nc" id="L48">        teaRum.addLiquid(blackTea1);</span>
+
+<span class="nc" id="L50">        System.out.println(&quot;Contents of Black Tea with Rum:&quot; + Arrays.toString(teaRum.getLiquidsString()));</span>
+<span class="nc" id="L51">        System.out.printf(&quot;%s is Alcoholic: %b%n&quot;, teaRum.getName(), teaRum.isAlcoholic());</span>
+<span class="nc" id="L52">        System.out.printf(&quot;Alcohol percentage of %s: %.2f%n&quot;, teaRum.getName(), teaRum.getAlcoholPercent());</span>
+<span class="nc" id="L53">        System.out.printf(&quot;Volume of %s: %.2f%n&quot;, teaRum.getName(), teaRum.getVolume());</span>
+
+//------------------------------------------------------------------------------------------------
+
+<span class="nc" id="L57">        System.out.println(&quot;\n------ SIMPLE BLACK TEA ------&quot;);</span>
+<span class="nc" id="L58">        Liquid blackTea2 = new Liquid(&quot;hot water + black tea bag&quot;, 0.5, 0, 2.10);</span>
+
+<span class="nc" id="L60">        Tea black = new Tea(&quot;Black Tea&quot;);</span>
+<span class="nc" id="L61">        black.addLiquid(blackTea2);</span>
+
+<span class="nc" id="L63">        System.out.println(&quot;Contents of Black Tea:&quot; + Arrays.toString(black.getLiquidsString()));</span>
+<span class="nc" id="L64">        System.out.printf(&quot;%s is Alcoholic: %b%n&quot;, black.getName(), black.isAlcoholic());</span>
+<span class="nc" id="L65">        System.out.printf(&quot;Alcohol percentage of %s: %.2f%n&quot;, black.getName(), black.getAlcoholPercent());</span>
+<span class="nc" id="L66">        System.out.printf(&quot;Volume of %s: %.2f%n&quot;, black.getName(), black.getVolume());</span>
+
+//------------------------------------------------------------------------------------------------
+
+<span class="nc" id="L70">        System.out.println();</span>
+<span class="nc" id="L71">        Liquid whiskey = new Liquid(&quot;Whiskey&quot;, 0.03, 40);</span>
+<span class="nc" id="L72">        whiskey.setPrice(15.50);</span>
+<span class="nc" id="L73">        Coffee coffee = new Coffee(&quot;Irish Coffee&quot;, whiskey);</span>
+<span class="nc" id="L74">        System.out.println(&quot;------ IRISH COFFEE ------&quot;);</span>
+<span class="nc" id="L75">        System.out.println(&quot;Alcoholic: &quot; + coffee.isAlcoholic());</span>
+<span class="nc" id="L76">        System.out.println(&quot;Percent: &quot; + coffee.getAlcoholPercent());</span>
+<span class="nc" id="L77">        System.out.println(&quot;Volume: &quot; + coffee.getVolume());</span>
+//------------------------------adding Stuff to selling data-------------------
+<span class="nc" id="L79">        Registrierkasse counter = new Registrierkasse();</span>
+<span class="nc" id="L80">        SellingDay silvester = new SellingDay(&quot;31.12.20&quot;);</span>
+<span class="nc" id="L81">        SellingDay newyear = new SellingDay(&quot;1.1.21&quot;);</span>
+<span class="nc" id="L82">        counter.addData(new SellingData(martini, seller1, newyear));</span>
+
+<span class="nc" id="L84">        counter.addData(new SellingData(teaRum, seller2, silvester));</span>
+<span class="nc" id="L85">        counter.addData(new SellingData(teaRum, seller2, silvester));</span>
+<span class="nc" id="L86">        counter.addData(new SellingData(teaRum, seller2, silvester));</span>
+<span class="nc" id="L87">        counter.addData(new SellingData(teaRum, seller2, newyear));</span>
+<span class="nc" id="L88">        counter.addData(new SellingData(black, seller2, newyear));</span>
+<span class="nc" id="L89">        counter.addData(new SellingData(black, seller2, newyear));</span>
+<span class="nc" id="L90">        counter.addData(new SellingData(martini, seller2, silvester));</span>
+<span class="nc" id="L91">        counter.addData(new SellingData(martini, seller2, silvester));</span>
+<span class="nc" id="L92">        counter.addData(new SellingData(martini, seller2, silvester));</span>
+<span class="nc" id="L93">        counter.addData(new SellingData(martini, seller2, silvester));</span>
+<span class="nc" id="L94">        counter.addData(new SellingData(martini, seller2, silvester));</span>
+<span class="nc" id="L95">        counter.addData(new SellingData(martini, seller2, silvester));</span>
+<span class="nc" id="L96">        counter.addData(new SellingData(martini, seller2, silvester));</span>
+<span class="nc" id="L97">        counter.addData(new SellingData(martini, seller2, silvester));</span>
+<span class="nc" id="L98">        counter.addData(new SellingData(martini, seller2, silvester));</span>
+<span class="nc" id="L99">        counter.addData(new SellingData(martini, seller2, silvester));</span>
+<span class="nc" id="L100">        counter.addData(new SellingData(martini, seller2, silvester));</span>
+<span class="nc" id="L101">        counter.addData(new SellingData(martini, seller2, silvester));</span>
+<span class="nc" id="L102">        counter.addData(new SellingData(martini, seller2, newyear));</span>
+<span class="nc" id="L103">        counter.addData(new SellingData(martini, seller2, newyear));</span>
+<span class="nc" id="L104">        counter.addData(new SellingData(martini, seller2, newyear));</span>
+<span class="nc" id="L105">        counter.addData(new SellingData(martini, seller2, newyear));</span>
+<span class="nc" id="L106">        counter.addData(new SellingData(martini, seller2, newyear));</span>
+<span class="nc" id="L107">        counter.addData(new SellingData(martini, seller2, newyear));</span>
+
+// ------------------------------print data from Registrierkasse-------------------
+
+<span class="nc" id="L111">        System.out.println(&quot;\n------ REGISTRIERKASSE ------&quot;);</span>
+<span class="nc" id="L112">        System.out.printf(&quot;Sales of all softdrinks: %.2f%n&quot;, counter.salesPerDrink()[0]);</span>
+<span class="nc" id="L113">        System.out.printf(&quot;Sales of all light alcoholic drinks: %.2f%n&quot;, counter.salesPerDrink()[1]);</span>
+<span class="nc" id="L114">        System.out.printf(&quot;Sales of all hard alcoholic drinks: %.2f%n&quot;, counter.salesPerDrink()[2]);</span>
+
+<span class="nc" id="L116">        System.out.printf(&quot;Sales per day - 31.12.2020: %.2f%n&quot;, counter.salesPerDay(silvester));</span>
+<span class="nc" id="L117">        System.out.printf(&quot;Sales per day - 01.01.2021: %.2f%n&quot;, counter.salesPerDay(newyear));</span>
+<span class="nc" id="L118">        System.out.printf(&quot;Sales per Lukas Becker: %.2f%n&quot;, counter.salesPerCapita(seller1));</span>
+<span class="nc" id="L119">        System.out.printf(&quot;Sales per Andrea Hessler: %.2f%n&quot;, counter.salesPerCapita(seller2));</span>
+<span class="nc" id="L120">        System.out.printf(&quot;Sales per Lukas Becker and day - 31.12.2020: %.2f%n&quot;, counter.salesPerCapitaAndDay(seller1, silvester));</span>
+<span class="nc" id="L121">        System.out.printf(&quot;Sales per Andrea Hessler and day - 31.12.2020: %.2f%n&quot;, counter.salesPerCapitaAndDay(seller2, silvester));</span>
+<span class="nc" id="L122">        System.out.printf(&quot;Sales per Lukas Becker and day - 01.01.2021: %.2f%n&quot;, counter.salesPerCapitaAndDay(seller1, newyear));</span>
+<span class="nc" id="L123">        System.out.printf(&quot;Sales per Andrea Hessler day - 01.01.2021: %.2f%n&quot;, counter.salesPerCapitaAndDay(seller2, newyear));</span>
+
+<span class="nc" id="L125">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

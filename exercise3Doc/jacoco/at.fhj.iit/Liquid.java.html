@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Liquid.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Drinks</a> &gt; <a href="index.source.html" class="el_package">at.fhj.iit</a> &gt; <span class="el_source">Liquid.java</span></div><h1>Liquid.java</h1><pre class="source lang-java linenums">package at.fhj.iit;
+
+/**
+ * represents a liquid which can be used in drinks
+ */
+public class Liquid {
+    /**
+     * name of liquid
+     */
+    private String name;
+    /**
+     * volume of liquid (in liter)
+     */
+    private double volume;
+
+    /**
+     * alcoholPercent of liquid (in percent eg. 42)
+     */
+    private double alcoholPercent;
+
+    /**
+     * price of a liquid as a double
+     */
+    private double price;
+    /**
+     * Creates new liquid with given name, volume and
+     * alcoholPercent
+     *
+     * @param name name of liquid
+     * @param volume volume of liquid
+     * @param alcoholPercent of liquid
+     */
+<span class="fc" id="L33">    public Liquid(String name, double volume, double alcoholPercent) {</span>
+<span class="fc" id="L34">        this.name = name;</span>
+<span class="fc" id="L35">        checkVolume(volume);</span>
+
+<span class="fc" id="L37">        this.volume = volume;</span>
+<span class="fc" id="L38">        this.alcoholPercent = alcoholPercent;</span>
+<span class="fc" id="L39">    }</span>
+
+    /**
+     * Creates a new liquid with a name, volume, alcohol percentage and a price
+     * @param name name of the Liquid
+     * @param volume volume of the Liquid
+     * @param alcoholPercent alcohol percentage of liquid
+     * @param price price of the Liquid
+     */
+<span class="fc" id="L48">    public Liquid(String name, double volume, double alcoholPercent,double price) {</span>
+<span class="fc" id="L49">        this.name = name;</span>
+<span class="fc" id="L50">        checkVolume(volume);</span>
+
+<span class="fc" id="L52">        this.volume = volume;</span>
+<span class="fc" id="L53">        this.alcoholPercent = alcoholPercent;</span>
+<span class="fc" id="L54">        this.price = price;</span>
+<span class="fc" id="L55">    }</span>
+
+    /**
+     * checks the Volume of a liquid
+     * @param volume the volume a user is trying to enter
+     */
+    private void checkVolume(double volume) {
+<span class="fc bfc" id="L62" title="All 2 branches covered.">        if (volume &lt;= 0) {</span>
+<span class="fc" id="L63">            throw new IllegalArgumentException(&quot;liquid &quot; + name + &quot; must have a volume &gt; 0&quot;);</span>
+        }
+<span class="fc" id="L65">    }</span>
+
+    /**
+     * Getter for name
+     *
+     * @return name of liquid
+     */
+    public String getName() {
+<span class="fc" id="L73">        return name;</span>
+    }
+
+    /**
+     * Setter for name
+     *
+     * @param name new name
+     */
+    public void setName(String name) {
+<span class="fc" id="L82">        this.name = name;</span>
+<span class="fc" id="L83">    }</span>
+
+    /**
+     * Getter for volume
+     *
+     * @return volume of liquid (in liter)
+     */
+    public double getVolume() {
+<span class="fc" id="L91">        return volume;</span>
+    }
+
+    /**
+     * Setter for volume
+     *
+     * @param volume new volume
+     */
+    public void setVolume(double volume) {
+<span class="fc" id="L100">        checkVolume(volume);</span>
+<span class="fc" id="L101">        this.volume = volume;</span>
+<span class="fc" id="L102">    }</span>
+
+    /**
+     * Getter for alcoholPercent
+     *
+     * @return alcoholPercent (e.g. 40)
+     */
+    public double getAlcoholPercent() {
+<span class="fc" id="L110">        return alcoholPercent;</span>
+    }
+
+    /**
+     * Setter for alcoholPercent
+     *
+     * @param alcoholPercent new alcoholPercent
+     */
+    public void setAlcoholPercent(double alcoholPercent) {
+<span class="fc" id="L119">        this.alcoholPercent = alcoholPercent;</span>
+<span class="fc" id="L120">    }</span>
+
+    /**
+     * setter for the price
+     * @param price how much a liquid costs
+     */
+    public void setPrice(double price) {
+<span class="fc" id="L127">        this.price = price;</span>
+<span class="fc" id="L128">    }</span>
+
+    /**
+     * getter for the Price
+     * @return the price of a liquid
+     */
+    public double getPrice() {
+<span class="fc" id="L135">        return price;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

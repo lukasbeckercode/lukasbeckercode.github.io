@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Tea.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Drinks</a> &gt; <a href="index.source.html" class="el_package">at.fhj.iit</a> &gt; <span class="el_source">Tea.java</span></div><h1>Tea.java</h1><pre class="source lang-java linenums">package at.fhj.iit;
+import java.util.Collection;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+/**
+ * Tea is a special Drink
+ * Tea with Alcohol is possible (exp. Tea with Rum)
+ * @author      Andrea Hessler
+ * Last Change: 02.06.2021
+ */
+public class Tea extends Drink{
+        /**
+     * Creates a Tea object with given name and liquid
+     * @param name name of Tea
+     */
+    Tea(String name){
+<span class="fc" id="L17">        super(name);</span>
+<span class="fc" id="L18">    }</span>
+    /**
+     * @return name of the tea
+     */
+    public String getName(){
+<span class="fc" id="L23">        return super.name;</span>
+    }
+    /**
+     * Returns volume of all liquids in a tea
+     * @return the volume of Tea in litre
+     */
+    @Override
+    public double getVolume() {
+<span class="fc" id="L31">        double volAll = 0.0;</span>
+<span class="fc bfc" id="L32" title="All 2 branches covered.">        for(Liquid l:getLiquids()){</span>
+<span class="fc" id="L33">            volAll += l.getVolume();</span>
+<span class="fc" id="L34">        }</span>
+<span class="fc" id="L35">        return volAll;</span>
+    }
+
+    /**
+     * Returns alcohol volume percent of the tea, consider all liquids in the tea
+     * @return alcohol volume percent
+     */
+    @Override
+    public double getAlcoholPercent() {
+<span class="fc" id="L44">        double alcPercentAll = 0.0;</span>
+<span class="fc bfc" id="L45" title="All 2 branches covered.">        for(Liquid l: getLiquids()){</span>
+<span class="fc" id="L46">            alcPercentAll += l.getAlcoholPercent()*l.getVolume();</span>
+<span class="fc" id="L47">        }</span>
+<span class="fc" id="L48">        return (alcPercentAll/getLiquids().size());</span>
+    }
+
+    /**
+     * Gives information if drink is alcoholic or not
+     *
+     * @return true when alcoholic liquids are present, otherwise (OLD: false) --&gt; NEW: throw Exception for Test
+     */
+    public boolean isAlcoholic() {
+<span class="fc bfc" id="L57" title="All 2 branches covered.">        for(Liquid l:getLiquids()){</span>
+<span class="fc bfc" id="L58" title="All 2 branches covered.">            if(l.getAlcoholPercent()&gt;0){</span>
+<span class="fc" id="L59">                return true;</span>
+            }
+//            else throw new RuntimeException(&quot;It isn't an alcoholic tea.&quot;); --&gt; now water is a liquid too
+<span class="fc" id="L62">        }</span>
+<span class="fc" id="L63">        return false;</span>
+
+    }
+    /**
+     * gets all the Liquids names
+     * @return a String array containing all the Liquid names
+     */
+    public String[] getLiquidsString(){
+<span class="fc" id="L71">        String[] liquidsStr = new String[getLiquids().size()];</span>
+<span class="fc bfc" id="L72" title="All 2 branches covered.">        for(int i = 0; i&lt; getLiquids().size();i++){</span>
+<span class="fc" id="L73">            liquidsStr[i]= getLiquids().get(i).getName();</span>
+        }
+<span class="fc" id="L75">        return liquidsStr;</span>
+    }
+
+//    NOT used in part of Registrierkasse:
+//    protected liquid l;
+//    public String toString() {
+//      return &quot;Tea called &quot; + name + &quot; with &quot; + l.getAlcoholPercent() + &quot; percent alcohol by volume&quot;;
+//    }
+//    /**
+//     * NEW: validate Input of Tea-Name
+//     **/
+//    public void hasName(String name) {
+//        this.name = name;
+//        if (this.name.isBlank()) throw new RuntimeException(&quot;There is no Input for the name of the tea.&quot;);
+//    }
+//    /**
+//     * NEW: Map-List with alcoholic Teas
+//     */
+//    Map&lt;String, Tea&gt; teaList = new ConcurrentHashMap&lt;&gt;();
+//    public void addTea(String name, Liquid l){
+//        Tea tea = new Tea(name, l);
+//        hasName(name);
+//        tea.isAlcoholic();
+//        teaList.put(key(), tea);
+//    }
+//    protected Collection&lt;Tea&gt; getAllTeas(){
+//        return teaList.values();
+//    }
+//    private String key(){
+//        return String.format(&quot;%s&quot;, name);
+//    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

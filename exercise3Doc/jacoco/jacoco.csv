@@ -1,0 +1,12 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+Drinks,at.fhj.iit,Registrierkasse,0,169,3,19,0,44,3,17,0,9
+Drinks,at.fhj.iit,SellingDay,0,9,0,0,0,4,0,2,0,2
+Drinks,at.fhj.iit,Main,709,0,0,0,88,0,2,0,2,0
+Drinks,at.fhj.iit,Drink,0,24,0,0,0,9,0,4,0,4
+Drinks,at.fhj.iit,Liquid,0,76,0,2,0,29,0,12,0,11
+Drinks,at.fhj.iit,SellingData,0,50,0,2,0,15,0,7,0,6
+Drinks,at.fhj.iit,Seller,0,19,0,0,0,8,0,4,0,4
+Drinks,at.fhj.iit,SimpleDrink,0,32,0,2,0,9,0,6,0,5
+Drinks,at.fhj.iit,Coffee,1,24,1,1,0,6,1,4,0,4
+Drinks,at.fhj.iit,Tea,0,103,0,10,0,22,0,11,0,6
+Drinks,at.fhj.iit,Cocktail,0,100,0,10,0,22,0,11,0,6
