@@ -1,10 +1,234 @@
-<html> 
-	<head> 
-		<title>ArduinoPDU</title> 
-	</head>
-	<body>
-		<h1>Welcome</h1>
-		<p> This is the official Page for the ArduinoPDU Project. In depth Documentation coming soon.</p>
-		You can find an overview of the Testresults <a href="testresults/">here</a> 
-	</body>
+<html lang="en">
+<head>
+	<title>ArduinoPDU</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<h1 id="arduinopdu">ArduinoPDU</h1>
+<p>A simple communication protocol for communication between any device (e.g. PC) and an Arduino via Serial communication loosly based
+	on the APDU protocol used in smart cards. </p>
+<h2 id="features">Features</h2>
+<h3 id="storing-and-reading-data">Storing and reading data</h3>
+<p>The library provides a String array called records. You can store and read data here either using the according
+	commands, or do it directly in your arduino sketch! </p>
+<h3 id="better-pin-control">Better pin control</h3>
+<p>Internal checks keep track of the pinModes set to each pin and strictly enforces these pinModes.
+	This means that a pin set to <em>INPUT</em> cannot be set to <em>HIGH</em> or <em>LOW</em> by this library.
+	The arduino allows the change of the pinMode and this library does as well, however the pin has to be specifically reset
+	and set to a new pinMode to avoid mistakes in this matter</p>
+<h3 id="customisation">Customisation</h3>
+<p>Commands 9000 to 9999 are custom commands, so their handling can easily be implemented by anyone with a little experience
+	in arduino development. Just take a quick look at the example.ino sketch. <br />
+	Although pointers are used to retrieve all the parts of the command, there is no need for a user of this library to
+	understand pointers at all. Just put the &quot;&amp;&quot; signs exactly where they are in the example.ino sketch
+	and everything works. </p>
+<h2 id="basic-command-syntax">Basic command Syntax</h2>
+<p><b>Commands must be of even length! </b></p>
+<table>
+	<thead>
+	<tr>
+		<th>Type</th>
+		<th>Size</th>
+		<th>Meaning</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td>CLA&amp;INS</td>
+		<td>4</td>
+		<td>The instruction to the Board</td>
+	</tr>
+	<tr>
+		<td>p1p2</td>
+		<td>2</td>
+		<td>any parameter, if the command needs any</td>
+	</tr>
+	<tr>
+		<td>lc</td>
+		<td>2</td>
+		<td>the length of the data that is sent with the command</td>
+	</tr>
+	<tr>
+		<td>data</td>
+		<td>var</td>
+		<td>any data the board might need for processing the command</td>
+	</tr>
+	</tbody>
+</table>
+<h2 id="valid-commands-examples">Valid commands &amp; examples</h2>
+<h3 id="class-01">Class 01</h3>
+<ul>
+	<li>0100: Hello World<ul>
+		<li>prints &quot;Hello World!9000&quot; </li>
+		<li>can be used without p1p2 lc and data </li>
+	</ul>
+	</li>
+	<li>0101: echo<ul>
+		<li>echos the data field back </li>
+		<li>p1p2 must be set (value is ignored) </li>
+		<li>example: 010100041234 -&gt; answer is 12349000</li>
+	</ul>
+	</li>
+</ul>
+<h3 id="class-02">Class 02</h3>
+<ul>
+	<li>0200: Store data <ul>
+		<li>stores data in the internal records array (type String)  </li>
+		<li>p1p2 tells the command where in this array to store the data, maximum value by default is 49   </li>
+		<li>example: 020001041234 -&gt; Data is stored in records[1], returns 9000 upon success </li>
+	</ul>
+	</li>
+	<li>0201: get data <ul>
+		<li>returns the data stored in the requested record </li>
+		<li>p1p2 tells the command which record to return </li>
+		<li>lc and data are ignored </li>
+		<li>example: 020101 -&gt; returns record 1, if previous command was run &quot;12349000&quot;  </li>
+	</ul>
+	</li>
+</ul>
+<h3 id="class-03">Class 03</h3>
+<ul>
+	<li>0300: Set to <em>LOW</em> <ul>
+		<li>sets the pin specified in p1p2 to <em>LOW</em></li>
+		<li>requires the pinMode to be set to <em>OUTPUT</em> (see below: 0311)</li>
+		<li>example: 030013 -&gt; sets output pin 13 to <em>LOW</em>, returns &quot;9000&quot; upon success </li>
+	</ul>
+	</li>
+	<li>0301: Set to <em>HIGH</em><ul>
+		<li>sets the pin specified in p1p2 to <em>HIGH</em></li>
+		<li>requires the pinMode to be set to <em>OUTPUT</em> (see below: 0311)</li>
+		<li>example: 030113 -&gt; set output pin 13 to <em>HIGH</em> , returns &quot;9000&quot; upon success</li>
+	</ul>
+	</li>
+	<li>0302: Read from digital pin<ul>
+		<li>reads input of digital pin p1p2</li>
+		<li>requires the pinMode to be set to <em>INPUT</em> (see below: 0311)</li>
+		<li>returns 0 for <em>LOW</em> and 1 for <em>HIGH</em> </li>
+		<li>example: 030212 -&gt; returns 09000 if pin 12 reads <em>LOW</em> </li>
+	</ul>
+	</li>
+	<li>0310: set pinMode to <em>INPUT</em><ul>
+		<li>sets the pinMode of p1p2 to <em>INPUT</em>, meaning that you can read the pin&#39;s value</li>
+		<li>necessary for 0302 command</li>
+		<li>example: 031013 -&gt; pinMode of pin 13 is now <em>INPUT</em>, returns &quot;9000&quot; upon success </li>
+	</ul>
+	</li>
+	<li>0311: set pinMode to <em>OUTPUT</em><ul>
+		<li>sets the pinMode of p1p2 to <em>OUTPUT</em>, meaning that you can read the pin&#39;s value</li>
+		<li>necessary for e.g. 0300 and 0301 commands </li>
+		<li>example: 031013 -&gt; pinMode of pin 13 is now <em>OUTPUT</em>, returns &quot;9000&quot; upon success</li>
+	</ul>
+	</li>
+	<li>0390: reset pinMode<ul>
+		<li>allows the pinMode of p1p2 to be reset</li>
+		<li>example: pin 13 is <em>OUTPUT</em>: 039013 -&gt; returns &quot;9000&quot;, pinMode of 13 can now be set again</li>
+	</ul>
+	</li>
+	<li>0399: reset pinModes<ul>
+		<li>sets all <em>OUTPUT</em> pins to <em>LOW</em> </li>
+		<li>allows all pinModes to be reset</li>
+	</ul>
+	</li>
+</ul>
+<h3 id="class-9x">Class 9X</h3>
+<p>This command class can be personalized in the arduino sketch by the user. This comes in handy if you need
+	functionality that isn&#39;t (yet) covered by this library. An example of how this can be used can be found
+	in the example.ino sketch. <br />
+	Since this command class is defined as 9X, you have CLAINS 9000 to 9999 available to your liking <br />
+	Example: 90010090 -&gt; user defines, that 9001 means to turn a stepper motor as many steps as defined in
+	the data field (90 in this example). The library itself doesn&#39;t return any Status word now. For semantic reasons,
+	you should use SW9000 as an indicator of success, failure status word can be chosen freely. <br />
+	This apdu always must be of even length as well! </p>
+<h2 id="status-words">Status words</h2>
+<p>Status words can be compared to the HTTP Response Codes. <br /> </p>
+<table>
+	<thead>
+	<tr>
+		<th>Status word</th>
+		<th>Meaning</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td>9000</td>
+		<td>Everything worked just fine!</td>
+	</tr>
+	<tr>
+		<td>6700</td>
+		<td>Wrong length: sent command has odd length</td>
+	</tr>
+	<tr>
+		<td>6800</td>
+		<td>Command unknown</td>
+	</tr>
+	<tr>
+		<td>6985</td>
+		<td>pinMode already set</td>
+	</tr>
+	<tr>
+		<td>6986</td>
+		<td>pin unavailable</td>
+	</tr>
+	</tbody>
+</table>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="i-sent-a-command-and-i-get-6700-as-a-response-then-nothing-happens">I sent a command, and I get 6700 as a response, then nothing happens</h3>
+<p>This most likely means that the length of your command was not even. For parsing purposes,
+	only commands with even lengths are permitted. <br />
+	Examples: </p>
+<ul>
+	<li>01010003123 -&gt; this is 11 chars long, so odd: returns 6700</li>
+	<li>010100041234 -&gt; 12 chars long, so even: returns 12349000  </li>
+</ul>
+<p>Also, the Arduino doesn&#39;t do anything if any status word other than 9000 is returned. <br />
+	Another possibility is, that the clains part has a length other than 4. So, for example </p>
+<ul>
+	<li>01 returns 6700 </li>
+	<li>0100 returns &quot;Hello World!9000&quot;<h3 id="i-sent-a-command-and-i-get-6800-as-a-response-then-nothing-happens">I sent a command, and I get 6800 as a response, then nothing happens</h3>
+		The command you sent is unknown to the library. If you meant to use an internal command, check for typos and look at Valid
+		commands section of the Document. If you meant to use a custom command, make sure it starts with a &quot;9&quot;. <h3 id="i-tried-to-set-a-pin-to-high-but-i-get-6986-as-a-response">I tried to set a pin to high, but I get 6986 as a response</h3>
+		This means your pinMode is either not set at all, or set to be an <em>INPUT</em> <br />
+		Try the following(example uses pin 13, so replace all the 13&#39;s with your desired Pin): </li>
+	<li>Send the following command: <ul>
+		<li>031113</li>
+		<li>if this returns &quot;9000&quot;, continue. </li>
+		<li>if this returns &quot;6985&quot;, stop here and read the next section on 6985</li>
+	</ul>
+	</li>
+	<li>Test, if this fixed the issue: <ul>
+		<li>030113</li>
+		<li>should return &quot;9000&quot;</li>
+		<li>pin 13 (or whichever pin you used) should be set to HIGH now</li>
+	</ul>
+	</li>
+</ul>
+<p>If this didn&#39;t work, please open an issue on this repo </p>
+<h3 id="i-tried-to-set-a-pinmode-using-either-0310-or-0311-but-i-get-6985-as-an-answer">I tried to set a pinMode using either 0310 or 0311, but I get 6985 as an answer</h3>
+<p>This means the pin you are trying to assign a pinMode to already is used. You can either use a different or do the following: </p>
+<ul>
+	<li>check to which pinMode your desired pin is set currently<ul>
+		<li>Send 030113(replace 13 with the desired pin again)</li>
+		<li>SW 9000 means it&#39;s an <em>OUTPUT</em> , SW 6986 means it&#39;s an <em>INPUT</em> </li>
+		<li>if the current pinMode is the desired one, you&#39;re done here, everything works should work fine.</li>
+	</ul>
+	</li>
+	<li>if the current pinMode isn&#39;t the one you want: <ul>
+		<li>send 039013(replace 13 with desired pin) </li>
+		<li>set the new pinMode</li>
+	</ul>
+	</li>
+	<li>if you want to reset all active pins <ul>
+		<li>send 0399</li>
+		<li><b> CAUTION: THIS RESETS ALL THE PINS, THEY CANNOT BE USED WITHOUT REASSIGNING A PINMODE </b></li>
+	</ul>
+	</li>
+</ul>
+<h2>Test Development</h2>
+<p>I am continuously developing TestNG tests in Java. Each command is tested for good case and bad case.<br />
+	You can find an overview of the Testresults <a href="testresults/">here</a>
+</p>
+</body>
+
+
 </html>
