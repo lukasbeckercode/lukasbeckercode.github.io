@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="7" passed="7" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2021-11-02T15:39:02 CET" name="Default Suite" finished-at="2021-11-02T15:39:26 CET" duration-ms="23665">
+    <groups>
+    </groups>
+    <test started-at="2021-11-02T15:39:02 CET" name="ArduinoPDUtestSuite" finished-at="2021-11-02T15:39:26 CET" duration-ms="23665">
+      <class name="CommandTests">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:CommandTests@76b10754]" started-at="2021-11-02T15:39:02 CET" name="setUpClass" finished-at="2021-11-02T15:39:08 CET" duration-ms="5593" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:CommandTests@76b10754]" started-at="2021-11-02T15:39:08 CET" name="setUp" finished-at="2021-11-02T15:39:09 CET" duration-ms="1003" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="t0100_HelloWorld()[pri:0, instance:CommandTests@76b10754]" started-at="2021-11-02T15:39:09 CET" name="t0100_HelloWorld" finished-at="2021-11-02T15:39:10 CET" duration-ms="562" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- t0100_HelloWorld -->
+        <test-method is-config="true" signature="reset()[pri:0, instance:CommandTests@76b10754]" started-at="2021-11-02T15:39:10 CET" name="reset" finished-at="2021-11-02T15:39:10 CET" duration-ms="548" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- reset -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:CommandTests@76b10754]" started-at="2021-11-02T15:39:10 CET" name="setUp" finished-at="2021-11-02T15:39:11 CET" duration-ms="1003" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="t0101_Echo()[pri:0, instance:CommandTests@76b10754]" started-at="2021-11-02T15:39:11 CET" name="t0101_Echo" finished-at="2021-11-02T15:39:12 CET" duration-ms="634" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- t0101_Echo -->
+        <test-method is-config="true" signature="reset()[pri:0, instance:CommandTests@76b10754]" started-at="2021-11-02T15:39:12 CET" name="reset" finished-at="2021-11-02T15:39:12 CET" duration-ms="552" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- reset -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:CommandTests@76b10754]" started-at="2021-11-02T15:39:12 CET" name="setUp" finished-at="2021-11-02T15:39:13 CET" duration-ms="1005" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="t0101_Echo_2()[pri:0, instance:CommandTests@76b10754]" started-at="2021-11-02T15:39:13 CET" name="t0101_Echo_2" finished-at="2021-11-02T15:39:14 CET" duration-ms="634" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- t0101_Echo_2 -->
+        <test-method is-config="true" signature="reset()[pri:0, instance:CommandTests@76b10754]" started-at="2021-11-02T15:39:14 CET" name="reset" finished-at="2021-11-02T15:39:14 CET" duration-ms="559" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- reset -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:CommandTests@76b10754]" started-at="2021-11-02T15:39:14 CET" name="setUp" finished-at="2021-11-02T15:39:15 CET" duration-ms="1004" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="t0200_StoreData()[pri:0, instance:CommandTests@76b10754]" started-at="2021-11-02T15:39:15 CET" name="t0200_StoreData" finished-at="2021-11-02T15:39:16 CET" duration-ms="651" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- t0200_StoreData -->
+        <test-method is-config="true" signature="reset()[pri:0, instance:CommandTests@76b10754]" started-at="2021-11-02T15:39:16 CET" name="reset" finished-at="2021-11-02T15:39:17 CET" duration-ms="567" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- reset -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:CommandTests@76b10754]" started-at="2021-11-02T15:39:17 CET" name="setUp" finished-at="2021-11-02T15:39:18 CET" duration-ms="1005" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="t0201_getData()[pri:0, instance:CommandTests@76b10754]" started-at="2021-11-02T15:39:18 CET" name="t0201_getData" finished-at="2021-11-02T15:39:18 CET" duration-ms="574" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- t0201_getData -->
+        <test-method is-config="true" signature="reset()[pri:0, instance:CommandTests@76b10754]" started-at="2021-11-02T15:39:18 CET" name="reset" finished-at="2021-11-02T15:39:19 CET" duration-ms="552" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- reset -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:CommandTests@76b10754]" started-at="2021-11-02T15:39:19 CET" name="setUp" finished-at="2021-11-02T15:39:20 CET" duration-ms="1003" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="t0300_pinHigh()[pri:0, instance:CommandTests@76b10754]" started-at="2021-11-02T15:39:20 CET" name="t0300_pinHigh" finished-at="2021-11-02T15:39:22 CET" duration-ms="1721" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- t0300_pinHigh -->
+        <test-method is-config="true" signature="reset()[pri:0, instance:CommandTests@76b10754]" started-at="2021-11-02T15:39:22 CET" name="reset" finished-at="2021-11-02T15:39:22 CET" duration-ms="571" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- reset -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:CommandTests@76b10754]" started-at="2021-11-02T15:39:22 CET" name="setUp" finished-at="2021-11-02T15:39:23 CET" duration-ms="1005" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="t0301_TryPinReset()[pri:0, instance:CommandTests@76b10754]" started-at="2021-11-02T15:39:23 CET" name="t0301_TryPinReset" finished-at="2021-11-02T15:39:25 CET" duration-ms="2308" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- t0301_TryPinReset -->
+        <test-method is-config="true" signature="reset()[pri:0, instance:CommandTests@76b10754]" started-at="2021-11-02T15:39:25 CET" name="reset" finished-at="2021-11-02T15:39:26 CET" duration-ms="571" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- reset -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:CommandTests@76b10754]" started-at="2021-11-02T15:39:26 CET" name="tearDown" finished-at="2021-11-02T15:39:26 CET" duration-ms="5" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- CommandTests -->
+    </test> <!-- ArduinoPDUtestSuite -->
+  </suite> <!-- Default Suite -->
+</testng-results>

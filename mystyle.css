@@ -1,0 +1,89 @@
+body {
+    background-color: lightblue;
+    font-family: Georgia, serif;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.header {
+    font-weight: bold;
+    color: #99d8d9; 
+    font-family: Verdana, sans-serif;
+    text-align: center;
+    padding: 20px; 
+    background-image:url("media/header.jpg");
+}
+.navbar{
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+}
+/*This section was made with the help of w3schools.com*/
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding-right: 10px;
+    overflow: hidden;
+    background-color: #99c6d9;
+}
+
+li{
+    float: left;
+}
+li a { /*Selector Combinator: descendant selector */
+    display: block;
+    padding-right: 10px;
+    text-align: center;
+}
+
+li a:hover{
+    background-color: #0099ff ;
+}
+/*-----------------------------------------------------*/
+h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    font-family: Verdana, sans-serif;
+}
+
+.flex-container{
+	display: flex; 
+	justify-content: space-around; 
+}
+
+.fit-window {
+    max-width: 360px;
+    max-height: 480px;
+    width: 50%;
+    height: 480px;
+}
+
+#success-table-format {
+    width: 100%;
+    text-align: center;
+    background-color: #99ccff
+}
+
+#success-table {
+    border: 1px solid black;
+    text-align: center;
+}
+
+#index-table {
+    border: 1px solid black;
+    margin-right: 20px; 
+    width: 50%;
+    background-color: #0099ff;
+}
+
+#success-content {
+    background-color: #00ffcc;
+    text-align: center;
+}
+
+#video-frame {
+    margin-top: 10px;
+   margin-right: 20px;
+}
+
+
