@@ -41,7 +41,7 @@
 	</tr>
 	<tr>
 		<td>p1p2</td>
-		<td>2</td>
+		<td>2||4</td>
 		<td>any parameter, if the command needs any</td>
 	</tr>
 	<tr>
@@ -108,6 +108,11 @@
 		<li>example: 030212 -&gt; returns 09000 if pin 12 reads <em>LOW</em> </li>
 	</ul>
 	</li>
+	<li>0303: analog Output<ul>
+		<li>Sets<em>OUTPUT</em> pin p1p2 to use pwm at the On/Off Cycle of data, where 100% On is 1024 and 0% on is 0 </li>
+		<li>The data field must have a length of 4</li>
+		<li>example: pin 13 is <em>OUTPUT</em> and has pwm: 030313040512 -&gt; returns &quot;9000&quot;, pin 13 now uses pwm at an on/off ratio of 50% (0512)</li>
+	</ul>
 	<li>0310: set pinMode to <em>INPUT</em><ul>
 		<li>sets the pinMode of p1p2 to <em>INPUT</em>, meaning that you can read the pin&#39;s value</li>
 		<li>necessary for 0302 command</li>
@@ -129,6 +134,7 @@
 		<li>sets all <em>OUTPUT</em> pins to <em>LOW</em> </li>
 		<li>allows all pinModes to be reset</li>
 	</ul>
+	</li>
 	</li>
 </ul>
 <h3 id="class-9x">Class 9X</h3>
