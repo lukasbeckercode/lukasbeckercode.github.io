@@ -26,7 +26,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -40,7 +40,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Default_Suite" class="navigator-link">
-              <span class="suite-name border-passed">Default Suite</span>
+              <span class="suite-name border-failed">Default Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -93,7 +93,26 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">7 methods,   7 passed</span>
+                    <span class="method-stats">12 methods, 2 failed,   10 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Default_Suite" class="hide-methods failed suite-Default_Suite"> (hide)</a> <!-- hide-methods failed suite-Default_Suite -->
+                      <a href="#" panel-name="suite-Default_Suite" class="show-methods failed suite-Default_Suite"> (show)</a> <!-- show-methods failed suite-Default_Suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Default_Suite">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_Suite" title="CommandTests" class="method navigator-link" hash-for-method="t0303_analogOut_3">t0303_analogOut_3</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_Suite" title="CommandTests" class="method navigator-link" hash-for-method="t0304_analogIn">t0304_analogIn</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Default_Suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -137,6 +156,21 @@
                         <a href="#" panel-name="suite-Default_Suite" title="CommandTests" class="method navigator-link" hash-for-method="t0301_TryPinReset">t0301_TryPinReset</a> <!-- method navigator-link -->
                       </span>
                       <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_Suite" title="CommandTests" class="method navigator-link" hash-for-method="t0303_analogOut">t0303_analogOut</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_Suite" title="CommandTests" class="method navigator-link" hash-for-method="t0303_analogOut_2">t0303_analogOut_2</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_Suite" title="CommandTests" class="method navigator-link" hash-for-method="t0390_pinHigh">t0390_pinHigh</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
                     </div> <!-- method-list-content passed suite-Default_Suite -->
                   </li>
                 </ul>
@@ -149,6 +183,42 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Default_Suite" class="panel Default_Suite">
+          <div class="suite-Default_Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">CommandTests</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="t0303_analogOut_3">
+                  </a> <!-- t0303_analogOut_3 -->
+                  <span class="method-name">t0303_analogOut_3</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected [6986] but found [9000]
+	at CommandTests.t0303_analogOut_3(CommandTests.java:582)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:109)
+... Removed 30 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="t0304_analogIn">
+                  </a> <!-- t0304_analogIn -->
+                  <span class="method-name">t0304_analogIn</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected [9000] but found [6986]
+	at CommandTests.t0304_analogIn(CommandTests.java:625)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:109)
+... Removed 30 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_Suite-class-failed -->
           <div class="suite-Default_Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -202,6 +272,27 @@
                   <a name="t0301_TryPinReset">
                   </a> <!-- t0301_TryPinReset -->
                   <span class="method-name">t0301_TryPinReset</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="t0303_analogOut">
+                  </a> <!-- t0303_analogOut -->
+                  <span class="method-name">t0303_analogOut</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="t0303_analogOut_2">
+                  </a> <!-- t0303_analogOut_2 -->
+                  <span class="method-name">t0303_analogOut_2</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="t0390_pinHigh">
+                  </a> <!-- t0390_pinHigh -->
+                  <span class="method-name">t0390_pinHigh</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -258,40 +349,60 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(7);
+data.addRows(12);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 't0301_TryPinReset')
+data.setCell(0, 1, 't0303_analogOut_2')
 data.setCell(0, 2, 'CommandTests')
-data.setCell(0, 3, 2308);
+data.setCell(0, 3, 2509);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 't0300_pinHigh')
+data.setCell(1, 1, 't0390_pinHigh')
 data.setCell(1, 2, 'CommandTests')
-data.setCell(1, 3, 1721);
+data.setCell(1, 3, 2329);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 't0200_StoreData')
+data.setCell(2, 1, 't0301_TryPinReset')
 data.setCell(2, 2, 'CommandTests')
-data.setCell(2, 3, 651);
+data.setCell(2, 3, 2317);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 't0101_Echo')
+data.setCell(3, 1, 't0303_analogOut')
 data.setCell(3, 2, 'CommandTests')
-data.setCell(3, 3, 634);
+data.setCell(3, 3, 1832);
 data.setCell(4, 0, 4)
-data.setCell(4, 1, 't0101_Echo_2')
+data.setCell(4, 1, 't0300_pinHigh')
 data.setCell(4, 2, 'CommandTests')
-data.setCell(4, 3, 634);
+data.setCell(4, 3, 1738);
 data.setCell(5, 0, 5)
-data.setCell(5, 1, 't0201_getData')
+data.setCell(5, 1, 't0303_analogOut_3')
 data.setCell(5, 2, 'CommandTests')
-data.setCell(5, 3, 574);
+data.setCell(5, 3, 1208);
 data.setCell(6, 0, 6)
-data.setCell(6, 1, 't0100_HelloWorld')
+data.setCell(6, 1, 't0304_analogIn')
 data.setCell(6, 2, 'CommandTests')
-data.setCell(6, 3, 562);
+data.setCell(6, 3, 1200);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 't0101_Echo')
+data.setCell(7, 2, 'CommandTests')
+data.setCell(7, 3, 640);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 't0200_StoreData')
+data.setCell(8, 2, 'CommandTests')
+data.setCell(8, 3, 639);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 't0201_getData')
+data.setCell(9, 2, 'CommandTests')
+data.setCell(9, 3, 572);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 't0100_HelloWorld')
+data.setCell(10, 2, 'CommandTests')
+data.setCell(10, 3, 563);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 't0101_Echo_2')
+data.setCell(11, 2, 'CommandTests')
+data.setCell(11, 3, 134);
 window.suiteTableData['Default_Suite']= { tableData: data, tableDiv: 'times-div-Default_Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 7 seconds</span>
+              <span class="suite-total-time">Total running time: 15 seconds</span>
               <div id="times-div-Default_Suite">
               </div> <!-- times-div-Default_Suite -->
             </div> <!-- times-div -->
@@ -324,91 +435,155 @@ return data;
               </div> <!-- configuration-class before -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">5603 ms</span>
+                <span class="method-start">5443 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">t0100_HelloWorld</span>
-                <span class="method-start">6607 ms</span>
+                <span class="method-start">6448 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">reset</span>
-                <span class="method-start">7170 ms</span>
+                <span class="method-start">7012 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">7718 ms</span>
+                <span class="method-start">7577 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">t0101_Echo</span>
-                <span class="method-start">8722 ms</span>
+                <span class="method-start">8581 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">reset</span>
-                <span class="method-start">9357 ms</span>
+                <span class="method-start">9221 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">9910 ms</span>
+                <span class="method-start">9771 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">t0101_Echo_2</span>
-                <span class="method-start">10915 ms</span>
+                <span class="method-start">10774 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">reset</span>
-                <span class="method-start">11549 ms</span>
+                <span class="method-start">10908 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">12109 ms</span>
+                <span class="method-start">11470 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">t0200_StoreData</span>
-                <span class="method-start">13113 ms</span>
+                <span class="method-start">12475 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">reset</span>
-                <span class="method-start">13764 ms</span>
+                <span class="method-start">13114 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">14331 ms</span>
+                <span class="method-start">13676 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">t0201_getData</span>
-                <span class="method-start">15336 ms</span>
+                <span class="method-start">14681 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">reset</span>
-                <span class="method-start">15911 ms</span>
+                <span class="method-start">15253 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">16464 ms</span>
+                <span class="method-start">15802 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">t0300_pinHigh</span>
-                <span class="method-start">17468 ms</span>
+                <span class="method-start">16803 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">reset</span>
-                <span class="method-start">19189 ms</span>
+                <span class="method-start">18542 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">19761 ms</span>
+                <span class="method-start">19092 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">t0301_TryPinReset</span>
-                <span class="method-start">20766 ms</span>
+                <span class="method-start">20097 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">reset</span>
-                <span class="method-start">23074 ms</span>
+                <span class="method-start">22414 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">22971 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">t0303_analogOut</span>
+                <span class="method-start">23974 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">reset</span>
+                <span class="method-start">25807 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">26368 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">t0303_analogOut_2</span>
+                <span class="method-start">27372 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">reset</span>
+                <span class="method-start">29881 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">30448 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">t0303_analogOut_3</span>
+                <span class="method-start">31449 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">reset</span>
+                <span class="method-start">32661 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">33224 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">t0304_analogIn</span>
+                <span class="method-start">34226 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">reset</span>
+                <span class="method-start">35428 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">35988 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">t0390_pinHigh</span>
+                <span class="method-start">36989 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">reset</span>
+                <span class="method-start">39318 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-class after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">23646 ms</span>
+                <span class="method-start">39887 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
