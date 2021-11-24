@@ -113,6 +113,13 @@
 		<li>The data field must have a length of 4</li>
 		<li>example: pin 13 is <em>OUTPUT</em> and has pwm: 030313040512 -&gt; returns &quot;9000&quot;, pin 13 now uses pwm at an on/off ratio of 50% (0512)</li>
 	</ul>
+	<li>0304: analog Read<ul>
+		<li>Reads <em>INPUT</em> pin p1p2 (has to be analog!).</li>
+		<li> Analog pins start from 14 (=A0)! 
+		<li>The data returned always has a length of 4</li>
+		<li>example: pin 14 (A0) is analog <em>INPUT</em>: 030414 -&gt; returns the analog reading (0-1024) &quot;9000&quot;</li>
+	</ul>
+
 	<li>0310: set pinMode to <em>INPUT</em><ul>
 		<li>sets the pinMode of p1p2 to <em>INPUT</em>, meaning that you can read the pin&#39;s value</li>
 		<li>necessary for 0302 command</li>
@@ -176,6 +183,11 @@
 		<td>6986</td>
 		<td>pin unavailable</td>
 	</tr>
+	<tr>
+		<td>6987</td>
+		<td>Not an analog pin</td>
+	</tr>
+
 	</tbody>
 </table>
 <h2 id="troubleshooting">Troubleshooting</h2>
