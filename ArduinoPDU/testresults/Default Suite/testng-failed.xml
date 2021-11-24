@@ -8,7 +8,6 @@
           <include name="t0303_analogOut_3"/>
           <include name="setUpClass"/>
           <include name="tearDown"/>
-          <include name="t0304_analogIn"/>
           <include name="setUp"/>
           <include name="reset"/>
         </methods>
