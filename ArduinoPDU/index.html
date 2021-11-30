@@ -70,6 +70,13 @@
 		<li>example: 010100041234 -&gt; answer is 12349000</li>
 	</ul>
 	</li>
+	<li>0102: delay<ul>
+		<li>puts the board to sleep for however many ms are specified un data </li>
+		<li>p1p2 must be set (value is ignored) </li>
+		<li>first, returns 9099 to indicate a delay is currently happening, then returns 9000 to show board is ready for new commands</li>
+		<li>example: 010200041000 -&gt; answer is 9099 and after 1000 ms 9000</li>
+	</ul>
+	</li>
 </ul>
 <h3 id="class-02">Class 02</h3>
 <ul>
@@ -166,6 +173,10 @@
 	<tr>
 		<td>9000</td>
 		<td>Everything worked just fine!</td>
+	</tr>
+	<tr>
+		<td>9099</td>
+		<td>The board is in a delay, a SW9000 will come soon to tell you when you can send your next command</td>
 	</tr>
 	<tr>
 		<td>6700</td>
